@@ -20,8 +20,23 @@ function hipChatizeHTML(html) {
 
   // scrub the raw message
   rawMessage = scrubHTML(rawMessage);
+
   // add style to @ mentions
   messageNode.innerHTML = rawMessage.replace(/(@"*[\d\w]*)(:|,| )/g, '<span class="atTag">$1</span>');
+
+  // add inline images
+  $("a", messageNode).filter(function() {
+    return $(this).attr("href").match(/\.(png|jpe?g|tif?f|gif|bmp)(?:[?&#_].*|$)/i);
+  }).each(function(){
+    img = $('<img />').attr("src", $(this).attr("href")).css({
+      maxWidth: "500px",
+      maxHeight: "400px"
+    }).load(function() {
+      imageSwap(this, false);
+      alignChat(nearBottom());
+    });
+    $(this).empty().addClass("image").append(img);
+  });
 
   var senderNode = html.querySelector('#sender');
 
