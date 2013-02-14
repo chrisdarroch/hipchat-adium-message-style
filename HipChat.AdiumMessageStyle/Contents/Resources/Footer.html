@@ -41,6 +41,8 @@ function hipChatizeHTML(html) {
     // Colorize the message
     if(/github|(chef\sclient)|agilezen/gi.test(rawSender)) {
       messageClass = "systemMessage";
+    } else if(/nutella/gi.test(rawSender)) {
+      messageClass = "systemMessage";
     } else if(/You have connected/gi.test(rawMessage)) {
       newContent = document.createTextNode('Welcome!');
       senderNode.appendChild(newContent);
