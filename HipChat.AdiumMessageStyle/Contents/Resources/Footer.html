@@ -22,7 +22,7 @@ function hipChatizeHTML(html) {
   rawMessage = scrubHTML(rawMessage);
 
   // add style to @ mentions
-  messageNode.innerHTML = rawMessage.replace(/(@"*[\d\w]*)(,| |$)|(@?"*[\d\w]*:)/g, '<span class="atTag">$1$3</span>');
+  messageNode.innerHTML = rawMessage.replace(/(@"*[\d\w]*)(,| |$)|(^@?"*[\d\w]*:)( |$)/g, '<span class="atTag">$1$3</span>');
 
   // add inline images
   $("a", messageNode).filter(function() {
