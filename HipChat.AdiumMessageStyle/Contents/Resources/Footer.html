@@ -27,7 +27,9 @@ function hipChatizeHTML(html) {
   }).each(function(){
     img = $('<img />').attr("src", $(this).attr("href")).css({
       maxWidth: "500px",
-      maxHeight: "400px"
+      maxHeight: "400px",
+      clear: "left",
+      display: "block"
     }).load(function() {
       imageSwap(this, false);
       alignChat(nearBottom());

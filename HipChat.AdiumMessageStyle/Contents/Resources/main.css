@@ -336,16 +336,6 @@ width:15px;
 padding:0 5px;
 }
 
-.image {
-margin:5px 10px;
-}
-
-.image
-img {
-max-width:300px;
-max-height:250px;
-}
-
 .dateDivider {
 background:#F4F4F4 url(/img/sidebar_header_bg.png) repeat-x scroll 0 100%;
 color:#333;
