@@ -439,3 +439,9 @@ border:none;
 .systemMessage.purple p {
   color: #777;
 }
+
+.actionMessageBody {
+    color: #444;
+    font-style: italic;
+    font-weight: bold;
+}
