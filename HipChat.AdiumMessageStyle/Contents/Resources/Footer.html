@@ -2,12 +2,9 @@
 <script type="text/javascript" defer="defer">
 
 function scrubHTML(html) {
-  // unescape HTML entities
-  html = html.replace(/&amp;/ig, '&');
-  html = html.replace(/&lt;/ig, '<');
-  html = html.replace(/&gt;/ig, '>');
   // undo Adium's terrible auto-linking
   html = html.replace(/"<a href="https?:\/\/.+?" title="https?:\/\/.+?">(https?:\/\/.+?)<\/a>"/g, '"$1"');
+
   // strip targets
   html = html.replace(/target="_blank"/g, '');
   return html
