@@ -23,7 +23,8 @@ function hipChatizeHTML(html) {
 
   // add inline images
   $("a", messageNode).filter(function() {
-    return $(this).attr("href").match(/\.(png|jpe?g|tif?f|gif|bmp)(?:[?&#_].*|$)/i);
+    return $(this).attr("href").match(/\.(png|jpe?g|tif?f|gif|bmp)(?:[?&#_].*|$)/i)
+        || $(this).attr("href").match(/https?:\/\/cl\.ly\/image\/[\d\w]+\/content/);
   }).each(function(){
     img = $('<img />').attr("src", $(this).attr("href")).css({
       maxWidth: "500px",
