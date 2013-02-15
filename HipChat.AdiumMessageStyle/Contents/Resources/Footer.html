@@ -21,6 +21,11 @@ function hipChatizeHTML(html) {
   // add style to @ mentions
   messageNode.innerHTML = rawMessage.replace(/(@"*[\d\w]+)(,| |\)|$)|(^@?"*[\d\w]+:)( |$)|(\/cc "*[\d\w]+:?)( |\)|$)/g, '<span class="atTag">$1$3$5</span>$2$4$6');
 
+  // add /content to CloudApp image links
+  $("a", messageNode).each(function(){
+    $(this).attr("href", $(this).attr("href").replace(/(https?:\/\/cl\.ly\/image\/[\d\w]+$)/, '$1/content'));
+  });
+
   // add inline images
   $("a", messageNode).filter(function() {
     return $(this).attr("href").match(/\.(png|jpe?g|tif?f|gif|bmp)(?:[?&#_].*|$)/i)
