@@ -191,19 +191,22 @@ background-color:transparent;
 border:none;
 }
 
-.systemMessage {
+.systemMessage,
+.systemMessage.red.green {
 background-color:#FFFBE8;
 border-top:1px solid #ECDCBD;
 }
 
-.systemMessage .nameBlock {
+.systemMessage .nameBlock,
+.systemMessage.red.green .nameBlock {
 color:#75510F;
 background-color:#FDECC6;
 border-top:1px solid #FFFAEA;
 border-right:1px solid #FFFAEA;
 }
 
-.systemMessage .messageBlock {
+.systemMessage .messageBlock,
+.systemMessage.red.green .messageBlock {
 vertical-align:middle;
 margin-bottom:4px;
 border-left:1px solid #E6D0AA;

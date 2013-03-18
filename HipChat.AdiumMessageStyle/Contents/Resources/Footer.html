@@ -66,14 +66,12 @@ function hipChatizeHTML(html) {
       senderNode.appendChild(newContent);
       messageClass = "welcomeMessage";
     } else if(/jenkins/gi.test(rawSender)) {
-      if(/fail(ed|ure|ing)/gi.test(rawMessage)) {
-        messageClass = "systemMessage red";
+      messageClass = "systemMessage";
+      if (/fail(ed|ure|ing) in/gi.test(rawMessage) || /abort(ed)?/gi.test(rawMessage)) {
+        messageClass += " red ";
       }
-      else if(/abort(ed)?/gi.test(rawMessage)){
-        messageClass = "systemMessage red";
-      }
-      else {
-        messageClass = "systemMessage green";
+      if (/starting build/gi.test(rawMessage) || /(fixed|success) in/gi.test(rawMessage)) {
+        messageClass += " green ";
       }
     } else {
       messageClass = "";
