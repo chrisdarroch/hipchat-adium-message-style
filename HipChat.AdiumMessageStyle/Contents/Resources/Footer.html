@@ -41,6 +41,19 @@ function hipChatizeHTML(html) {
     $(this).empty().addClass("image").append(img);
   });
 
+  // add inline images
+  $("a", messageNode).filter(function() {
+    return $(this).attr("href").match(/\.(png|jpe?g|tif?f|gif|bmp)(?:[?&#_].*|$)/i);
+  }).each(function(){
+    img = $('<img />').attr("src", $(this).attr("href")).css({
+      maxWidth: "100%",
+      maxHeight: "100%"
+    }).load(function() {
+      imageSwap(this, false);
+      alignChat(nearBottom());
+    });
+    $(this).empty().addClass("image").append(img);
+  })
   var senderNode = html.querySelector('#sender');
 
   // if we have a sender assume we are a 'real' first message
