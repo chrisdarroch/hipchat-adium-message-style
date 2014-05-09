@@ -61,14 +61,6 @@ function hipChatizeHTML(html) {
 
     var rawSender = senderNode.innerHTML;
 
-    // truncate usernames, i.e. turn 'sc Seth Chisamore' into 'sc C.'
-    senderParts = rawSender.split(' ');
-    truncatedSender = senderParts[0];
-    if(senderParts.length > 1) {
-      truncatedSender = truncatedSender.concat(' ', senderParts.pop().slice(0,1), '.');
-    }
-    senderNode.innerText = truncatedSender;
-
     // Colorize the message
     if(/github|(chef\sclient)|agilezen/gi.test(rawSender)) {
       messageClass = "systemMessage";
